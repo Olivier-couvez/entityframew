@@ -1,0 +1,18 @@
+        private void btnValider_Click(object sender, EventArgs e)
+        {
+            BllFormation nouvelleformation = new BllFormation();
+            nouvelleformation.AjouterFormation(textBoxNom.Text, textBoxNiveau.Text, Convert.ToInt16(textBoxNbStagiaires.Text));
+
+        }
+		
+		public liste<formation> getstagiaireformation()
+		{
+		list<formation> listearetourner = new lest<formation>;
+		var form = from f in db.formation select f;
+		if (form.count() > 0 )
+		foreach (var elt in form.tolist())
+		{
+		listearetourner.add(elt);
+		}
+		}
+		return listearetourner;

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="formationModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="formation">
+          <Key>
+            <PropertyRef Name="idFormation" />
+          </Key>
+          <Property Name="idFormation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" />
+          <Property Name="Niveau" Type="varchar" MaxLength="45" />
+          <Property Name="NbStagiares" Type="int" />
+        </EntityType>
+        <EntityType Name="stagiare">
+          <Key>
+            <PropertyRef Name="idStagiare" />
+          </Key>
+          <Property Name="idStagiare" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" />
+          <Property Name="Prenom" Type="varchar" MaxLength="45" />
+          <Property Name="Age" Type="int" />
+          <Property Name="idFormation" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Stagiare_Formation">
+          <End Role="formation" Type="Self.formation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stagiare" Type="Self.stagiare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="formation">
+              <PropertyRef Name="idFormation" />
+            </Principal>
+            <Dependent Role="stagiare">
+              <PropertyRef Name="idFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="formationModelStoreContainer">
+          <EntitySet Name="formation" EntityType="Self.formation" Schema="formation" store:Type="Tables" />
+          <EntitySet Name="stagiare" EntityType="Self.stagiare" Schema="formation" store:Type="Tables" />
+          <AssociationSet Name="fk_Stagiare_Formation" Association="Self.fk_Stagiare_Formation">
+            <End Role="formation" EntitySet="formation" />
+            <End Role="stagiare" EntitySet="stagiare" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="formationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="formation">
+          <Key>
+            <PropertyRef Name="idFormation" />
+          </Key>
+          <Property Name="idFormation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Niveau" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NbStagiares" Type="Int32" />
+          <NavigationProperty Name="stagiare" Relationship="Self.fk_Stagiare_Formation" FromRole="formation" ToRole="stagiare" />
+        </EntityType>
+        <EntityType Name="stagiare">
+          <Key>
+            <PropertyRef Name="idStagiare" />
+          </Key>
+          <Property Name="idStagiare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="idFormation" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="formation" Relationship="Self.fk_Stagiare_Formation" FromRole="stagiare" ToRole="formation" />
+        </EntityType>
+        <Association Name="fk_Stagiare_Formation">
+          <End Role="formation" Type="Self.formation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stagiare" Type="Self.stagiare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="formation">
+              <PropertyRef Name="idFormation" />
+            </Principal>
+            <Dependent Role="stagiare">
+              <PropertyRef Name="idFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="formationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="formation" EntityType="Self.formation" />
+          <EntitySet Name="stagiare" EntityType="Self.stagiare" />
+          <AssociationSet Name="fk_Stagiare_Formation" Association="Self.fk_Stagiare_Formation">
+            <End Role="formation" EntitySet="formation" />
+            <End Role="stagiare" EntitySet="stagiare" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="formationModelStoreContainer" CdmEntityContainer="formationEntities">
+          <EntitySetMapping Name="formation">
+            <EntityTypeMapping TypeName="formationModel.formation">
+              <MappingFragment StoreEntitySet="formation">
+                <ScalarProperty Name="idFormation" ColumnName="idFormation" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Niveau" ColumnName="Niveau" />
+                <ScalarProperty Name="NbStagiares" ColumnName="NbStagiares" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stagiare">
+            <EntityTypeMapping TypeName="formationModel.stagiare">
+              <MappingFragment StoreEntitySet="stagiare">
+                <ScalarProperty Name="idStagiare" ColumnName="idStagiare" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="idFormation" ColumnName="idFormation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
