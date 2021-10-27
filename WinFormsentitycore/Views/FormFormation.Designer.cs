@@ -39,6 +39,8 @@ namespace WinFormsentitycore
             this.lblAffichage = new System.Windows.Forms.Label();
             this.lblFiltre = new System.Windows.Forms.Label();
             this.cBoxFiltre = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxRecherche = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridFormation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,6 +101,7 @@ namespace WinFormsentitycore
             this.btnRecherche.TabIndex = 5;
             this.btnRecherche.Text = "Recherche";
             this.btnRecherche.UseVisualStyleBackColor = true;
+            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
             // 
             // cBoxChoix
             // 
@@ -124,7 +127,7 @@ namespace WinFormsentitycore
             // lblFiltre
             // 
             this.lblFiltre.AutoSize = true;
-            this.lblFiltre.Location = new System.Drawing.Point(428, 39);
+            this.lblFiltre.Location = new System.Drawing.Point(406, 42);
             this.lblFiltre.Name = "lblFiltre";
             this.lblFiltre.Size = new System.Drawing.Size(33, 15);
             this.lblFiltre.TabIndex = 8;
@@ -134,18 +137,39 @@ namespace WinFormsentitycore
             // 
             this.cBoxFiltre.FormattingEnabled = true;
             this.cBoxFiltre.Items.AddRange(new object[] {
-            "Formations",
-            "Stagiaires"});
+            "Formations par nombre de stagiaire",
+            "Stagiaires par nom",
+            "Stagiaires par prénom",
+            "Stagiaires d\'une formation",
+            "Stagiaire par niveau de formation"});
             this.cBoxFiltre.Location = new System.Drawing.Point(496, 39);
             this.cBoxFiltre.Name = "cBoxFiltre";
             this.cBoxFiltre.Size = new System.Drawing.Size(152, 23);
             this.cBoxFiltre.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(406, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 15);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "A rechercher :";
+            // 
+            // textBoxRecherche
+            // 
+            this.textBoxRecherche.Location = new System.Drawing.Point(496, 68);
+            this.textBoxRecherche.Name = "textBoxRecherche";
+            this.textBoxRecherche.Size = new System.Drawing.Size(237, 23);
+            this.textBoxRecherche.TabIndex = 11;
             // 
             // Formformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxRecherche);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cBoxFiltre);
             this.Controls.Add(this.lblFiltre);
             this.Controls.Add(this.lblAffichage);
@@ -177,6 +201,8 @@ namespace WinFormsentitycore
         private System.Windows.Forms.Label lblAffichage;
         private System.Windows.Forms.Label lblFiltre;
         private System.Windows.Forms.ComboBox cBoxFiltre;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxRecherche;
     }
 }
 

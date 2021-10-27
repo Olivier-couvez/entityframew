@@ -7,7 +7,7 @@
 		
 		public liste<formation> getstagiaireformation()
 		{
-		list<formation> listearetourner = new lest<formation>;
+		list<formation> listearetourner = new list<formation>;
 		var form = from f in db.formation select f;
 		if (form.count() > 0 )
 		foreach (var elt in form.tolist())
@@ -16,3 +16,9 @@
 		}
 		}
 		return listearetourner;
+		
+		
+		
+		Scaffold-DbContext "server=localhost;port=3306;user=root;password=;database=formations" MySql.Data.EntityFrameworkCore -OutputDir DataAccess\DataObjects -f
+		gestioncourses
+		Scaffold-DbContext "server=localhost;port=3306;user=root;password=;database=gestioncourses" MySql.Data.EntityFrameworkCore -OutputDir DataAccess\DataObjects -f

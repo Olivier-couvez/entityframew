@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winfentitygestcourse", "winfentitygestcourse.csproj", "{E6A89BEE-DE8E-4456-974D-940789F84C7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6A89BEE-DE8E-4456-974D-940789F84C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A89BEE-DE8E-4456-974D-940789F84C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A89BEE-DE8E-4456-974D-940789F84C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A89BEE-DE8E-4456-974D-940789F84C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32DBB526-A9E8-4ABD-80C1-83C3F13E11BA}
+	EndGlobalSection
+EndGlobal

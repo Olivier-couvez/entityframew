@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WinFormsentitycore.DataAcess.dataObjects;
+using System.Linq;
 
 namespace WinFormsentitycore.Bll
 {
@@ -57,6 +58,104 @@ namespace WinFormsentitycore.Bll
                 //erreur
             }
             return etat;
+        }
+
+        public List<Stagiaire> getStagiaireNom(string fNom)
+        {
+            formationsContext db = new formationsContext();
+            List<Stagiaire> listearetourner = new List<Stagiaire>();
+            var format = from f in db.Stagiaire
+                         where f.Nom == fNom
+                         select f;
+
+            if (format.Count() > 0)
+            {
+                foreach (var elt in format)
+                {
+                    listearetourner.Add(elt);
+                }
+            }
+            return listearetourner;
+        }
+
+        public List<Stagiaire> getStagiairePrenom(string fNom)
+        {
+            formationsContext db = new formationsContext();
+            List<Stagiaire> listearetourner = new List<Stagiaire>();
+            var format = from f in db.Stagiaire
+                         where f.Nom == fNom
+                         select f;
+
+            if (format.Count() > 0)
+            {
+                foreach (var elt in format)
+                {
+                    listearetourner.Add(elt);
+                }
+            }
+            return listearetourner;
+        }
+
+        public List<Stagiaire> getStagiaireForm(string fNom)
+        {
+            int numFormat = 0;
+            formationsContext db = new formationsContext();
+
+            List<Stagiaire> listearetourner = new List<Stagiaire>();
+            var numForm = from nf in db.Formation
+                          where nf.Nom == fNom
+                          select nf.IdFormation;
+            if (numForm.Count() > 0)
+            {
+                foreach (var elt in numForm)
+                {
+                    numFormat = elt;
+                }
+            }
+
+            var format = from f in db.Stagiaire
+                         where f.IdFormation == numFormat
+                         select f;
+
+            if (format.Count() > 0)
+            {
+                foreach (var elt in format)
+                {
+                    listearetourner.Add(elt);
+                }
+            }
+            return listearetourner;
+        }
+
+        public List<Stagiaire> getStagiaireNiveau(string fNiv)
+        {
+            int numFormat = 0;
+            formationsContext db = new formationsContext();
+
+            List<Stagiaire> listearetourner = new List<Stagiaire>();
+            var numForm = from nf in db.Formation
+                          where nf.Niveau == fNiv
+                          select nf.IdFormation;
+            if (numForm.Count() > 0)
+            {
+                foreach (var elt in numForm)
+                {
+                    numFormat = elt;
+                }
+            }
+
+            var format = from f in db.Stagiaire
+                         where f.IdFormation == numFormat
+                         select f;
+
+            if (format.Count() > 0)
+            {
+                foreach (var elt in format)
+                {
+                    listearetourner.Add(elt);
+                }
+            }
+            return listearetourner;
         }
     }
 }

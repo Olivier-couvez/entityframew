@@ -40,10 +40,10 @@ E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\Win
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.AssemblyInfoInputs.cache
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.AssemblyInfo.cs
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.csproj.CoreCompileInputs.cache
-E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.csproj.CopyComplete
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.dll
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.pdb
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.genruntimeconfig.cache
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.Formformation.resources
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.Views.AjouterFormation.resources
 E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.Views.AjouterStagiaire.resources
+E:\olivier\Base de donnée\Entity\WinFormsentitycore\obj\Debug\netcoreapp3.1\WinFormsentitycore.GeneratedMSBuildEditorConfig.editorconfig

@@ -73,5 +73,22 @@ namespace WinFormsentitycore.Bll
             }
 		    return listearetourner;
             }
+        public List<Formation> getFormationNombre(string fNombre)
+        {
+            formationsContext db = new formationsContext();
+            List<Formation> listearetourner = new List<Formation>();
+            var format = from f in db.Formation
+                         where f.NbStagiaire == Int32.Parse(fNombre)
+                         select f;
+
+            if (format.Count() > 0)
+            {
+                foreach (var elt in format)
+                {
+                    listearetourner.Add(elt);
+                }
+            }
+            return listearetourner;
+        }
     }
 }

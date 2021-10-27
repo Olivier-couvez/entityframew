@@ -28,8 +28,8 @@ namespace WinFormsentitycore
 
         private void Formformation_Load(object sender, EventArgs e)
         {
-            using var db = new formationsContext();
-            gridFormation.DataSource = db.Formation.ToList();
+            BllFormation lectureFormation = new BllFormation();
+            gridFormation.DataSource = lectureFormation.getStagiaireFormation();
             cBoxChoix.SelectedIndex = 0;
         }
 
@@ -106,6 +106,38 @@ namespace WinFormsentitycore
                     break;
             }
             cBoxChoix_SelectedIndexChanged(sender, e);
+        }
+
+        private void btnRecherche_Click(object sender, EventArgs e)
+        {
+            switch (cBoxFiltre.SelectedIndex)
+            {
+                case 0:
+                    BllFormation lectureFromNombre = new BllFormation();
+                    cBoxChoix.SelectedIndex = 0;
+                    gridFormation.DataSource = lectureFromNombre.getFormationNombre(textBoxRecherche.Text);
+                    break;
+                case 1:
+                    BllStagiaire lectureStagNom = new BllStagiaire();
+                    cBoxChoix.SelectedIndex = 1;
+                    gridFormation.DataSource = lectureStagNom.getStagiaireNom(textBoxRecherche.Text);
+                    break;
+                case 2:
+                    BllStagiaire lectureStagPrenom = new BllStagiaire();
+                    cBoxChoix.SelectedIndex = 1;
+                    gridFormation.DataSource = lectureStagPrenom.getStagiairePrenom(textBoxRecherche.Text);
+                    break;
+                case 3:
+                    BllStagiaire lectureStagForm = new BllStagiaire();
+                    cBoxChoix.SelectedIndex = 1;
+                    gridFormation.DataSource = lectureStagForm.getStagiaireForm(textBoxRecherche.Text);
+                    break;
+                case 4:
+                    BllStagiaire lectureStagNiveau = new BllStagiaire();
+                    cBoxChoix.SelectedIndex = 1;
+                    gridFormation.DataSource = lectureStagNiveau.getStagiaireNiveau(textBoxRecherche.Text);
+                    break;
+            }
         }
     }
 }
