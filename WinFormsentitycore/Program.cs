@@ -10,6 +10,7 @@ namespace WinFormsentitycore
     {
         /// <summary>
         ///  The main entry point for the application.
+        ///  Virus c.
         /// </summary>
         [STAThread]
         static void Main()
